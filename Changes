@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.08     2014-02-13
     - switched packaging to just EUMM, as MBT wants the .xs file in a
       different place
 

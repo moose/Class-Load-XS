@@ -4,7 +4,7 @@ Class::Load::XS - XS implementation of parts of Class::Load
 
 # VERSION
 
-version 0.07
+version 0.08
 
 # SYNOPSIS
 

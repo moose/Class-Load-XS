@@ -27,3 +27,5 @@ __END__
 
 This module provides an XS implementation for portions of L<Class::Load>. See
 L<Class::Load> for API details.
+
+=for Pod::Coverage is_class_loaded

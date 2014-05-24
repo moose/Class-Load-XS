@@ -1,10 +1,13 @@
+/.ackrc
 /.build
-!.gitignore
+!/.gitignore
+/.latest
 /Class-Load-*/
 /Class-Load-XS-*/
-/Class-Load-XS*.tar.gz
-/MYMETA.*
+/Class-Load-XS-*.tar.gz
 /Makefile
+/Makefile.old
+/MYMETA.*
 /pm_to_blib
 /*.bs
 /*.c

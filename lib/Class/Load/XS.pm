@@ -16,6 +16,7 @@ XSLoader::load(
 1;
 
 # ABSTRACT: XS implementation of parts of Class::Load
+# KEYWORDS: class module load require use runtime XS
 
 __END__
 

@@ -1,3 +1,4 @@
+#define PERL_NO_GET_CONTEXT 
 #include "EXTERN.h"
 #include "perl.h"
 #include "XSUB.h"
@@ -7,7 +8,7 @@
    refined by Florian Ragwitz. */
 
 static bool
-check_version (SV *klass, SV *required_version) {
+check_version (pTHX_ SV *klass, SV *required_version) {
     bool ret = 0;
 
     dSP;
@@ -35,7 +36,7 @@ check_version (SV *klass, SV *required_version) {
 }
 
 static bool
-has_a_sub (HV *stash) {
+has_a_sub (pTHX_ HV *stash) {
     HE *he;
 
     (void)hv_iterinit(stash);
@@ -73,7 +74,7 @@ static U32 HASH_FOR_VERSION;
 static U32 HASH_FOR_ISA;
 
 void
-prehash_keys () {
+prehash_keys (pTHX) {
     KEY_FOR__version = newSVpv("-version", 8);
     KEY_FOR_VERSION = newSVpv("VERSION", 7);
     KEY_FOR_ISA = newSVpv("ISA", 3);
@@ -88,7 +89,7 @@ MODULE = Class::Load::XS   PACKAGE = Class::Load::XS
 PROTOTYPES: DISABLE
 
 BOOT:
-    prehash_keys();
+    prehash_keys(aTHX);
 
 void
 is_class_loaded(klass, options=NULL)
@@ -110,7 +111,7 @@ is_class_loaded(klass, options=NULL)
 
         if (options && hv_exists_ent(options, KEY_FOR__version, HASH_FOR__version)) {
             HE *required_version = hv_fetch_ent(options, KEY_FOR__version, 0, HASH_FOR__version);
-            if (check_version (klass, HeVAL(required_version))) {
+            if (check_version (aTHX_ klass, HeVAL(required_version))) {
                 XSRETURN_YES;
             }
 
@@ -154,7 +155,7 @@ is_class_loaded(klass, options=NULL)
             }
         }
 
-        if (has_a_sub(stash)) {
+        if (has_a_sub(aTHX_ stash)) {
             XSRETURN_YES;
         }
 

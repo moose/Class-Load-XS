@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+   - optimized some perl API calls (thanks, Alexandr Evstigneev!)
 
 0.08     2014-02-13
     - switched packaging to just EUMM, as MBT wants the .xs file in a

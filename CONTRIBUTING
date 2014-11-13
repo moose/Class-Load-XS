@@ -4,9 +4,16 @@ CONTRIBUTING
 Thank you for considering contributing to this distribution.  This file
 contains instructions that will help you work with the source code.
 
-The distribution is managed with Dist::Zilla.  However, you can still compile
-and test the code with a small Makefile.PL specifically for use in the
-repository.  You can do:
+PLEASE NOTE that if you have any questions or difficulties, you can reach the
+maintainer(s) through the bug queue described later in this document
+(preferred), or by emailing the releaser directly. You are not required to
+follow any of the steps in this document to submit a patch or bug report;
+these are just recommendations, intended to help you (and help us help you
+faster).
+
+The distribution is managed with Dist::Zilla (https://metacpan.org/release/Dist-Zilla).
+However, you can still compile and test the code with a small Makefile.PL
+specifically for use in the repository.  You can do:
 
     perl Makefile.PL
     make
@@ -14,7 +21,9 @@ repository.  You can do:
 
 As well as:
 
-  $ prove -lv t/some_test_file.t
+  $ prove -bvr t
+or
+  $ perl -Mblib t/some_test_file.t
 
 You may need to satisfy some dependencies.  The easiest way to satisfy
 dependencies is to install the last release -- this is available at
@@ -30,13 +39,23 @@ install it from CPAN, then run one of the following commands, depending on
 your CPAN client:
 
   $ cpan `dzil authordeps --missing`
+or
   $ dzil authordeps --missing | cpanm
 
 You should then also install any additional requirements not needed by the
 dzil build but may be needed by tests or other development:
 
-  # cpan `dzil listdeps --author --missing`
+  $ cpan `dzil listdeps --author --missing`
+or
   $ dzil listdeps --author --missing | cpanm
+
+Or, you can use the 'dzil stale' command to install all requirements at once:
+
+  $ cpan Dist::Zilla::App::Command::stale
+  $ cpan `dzil stale --all`
+or
+  $ cpanm Dist::Zilla::App::Command::stale
+  $ dzil stale --all | cpanm
 
 You can also do this via cpanm directly:
 
@@ -72,6 +91,12 @@ http://lists.perl.org/list/moose.html.
 There is also an irc channel available for users of this distribution, at
 irc://irc.perl.org/#moose.
 
+If you send me a patch or pull request, your name and email address will be
+included in the documentation as a contributor (using the attribution on the
+commit or patch), unless you specifically request for it not to be.  If you
+wish to be listed under a different name, you should submit a pull request to
+the .mailmap file to contain the correct mapping.
+
 
 This file was generated via Dist::Zilla::Plugin::GenerateFile::ShareDir 0.005 from a
-template file originating in Dist-Zilla-PluginBundle-Author-ETHER-0.050.
+template file originating in Dist-Zilla-PluginBundle-Author-ETHER-0.078.

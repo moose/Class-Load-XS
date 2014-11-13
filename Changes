@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.09     2014-11-13
    - optimized some perl API calls (thanks, Alexandr Evstigneev!)
 
 0.08     2014-02-13

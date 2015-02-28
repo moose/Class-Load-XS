@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use lib 'inc';
+use lib 'inc::latest';
 use ExtUtils::MakeMaker::Dist::Zilla::Develop;
 WriteMakefile(
     NAME => 'Class::Load::XS',

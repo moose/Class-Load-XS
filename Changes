@@ -1,5 +1,7 @@
 Revision history for Class-Load-XS
 
+{{$NEXT}}
+
 0.10     2017-04-11
    - fix test to handle altered Test::Without::Module exception message
 

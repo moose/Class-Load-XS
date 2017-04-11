@@ -3,7 +3,7 @@ package Class::Load::XS;
 use strict;
 use warnings;
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 use Class::Load 0.20;
 

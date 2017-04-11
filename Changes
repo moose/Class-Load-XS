@@ -1,6 +1,7 @@
 Revision history for Class-Load-XS
 
 {{$NEXT}}
+   - fix test to handle altered Test::Without::Module exception message
 
 0.09     2014-11-13
    - optimized some perl API calls (thanks, Alexandr Evstigneev!)
